@@ -11,6 +11,7 @@
 :root {
     --color-background: #fffdf7;
     --color-blak: #121211;
+    --color-blak-heavy: #000;
     --color-text: #4f4f4f;
     --color-text-out: #90908e;
     --color-primary: #ffbf00;
@@ -41,7 +42,8 @@ b {
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 1);
 }
 
-.btn-white.active, .btn-white:hover{
+.btn-white.active,
+.btn-white:hover {
     background-color: var(--color-primary);
 
 }
@@ -131,17 +133,17 @@ a.navbar-brand {
 
 }
 
-.btn-sm{
-    padding: 9px 15px!important;
-    border-radius: 15px!important;
+.btn-sm {
+    padding: 9px 15px !important;
+    border-radius: 15px !important;
     font-size: 18px !important;
 }
 
-.btn-social{
+.btn-social {
     width: 50px;
 }
 
-.card-banner{
+.card-banner {
     height: 450px;
     width: 450px;
     border-radius: 170px;
@@ -151,23 +153,23 @@ a.navbar-brand {
     top: -80px;
 }
 
-.img-banner img{
+.img-banner img {
     position: absolute;
     width: 570px;
-    top:30px;
+    top: 30px;
     right: 15px;
 
 }
 
-.card-case-name{
-        position: absolute;
-        font-size: 12px;
-        color: var(--color-primary);
-        right: 20px;
-        bottom: 10px;
+.card-case-name {
+    position: absolute;
+    font-size: 12px;
+    color: var(--color-primary);
+    right: 20px;
+    bottom: 10px;
 }
 
-.card-case{
+.card-case {
     width: 350px;
     font-size: 14px;
     position: absolute;
@@ -175,35 +177,35 @@ a.navbar-brand {
     bottom: -75px;
 }
 
-.card{
+.card {
     border-radius: 20px;
     padding: 15px 20px;
     font-size: 20px;
-    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1)!important;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
     border: none !important;
 }
 
-.serviços{
-    padding-top:100px ;
+.serviços {
+    padding-top: 100px;
     padding-bottom: 150px;
 
 }
 
-.hint-title{
+.hint-title {
     color: var(--color-primary);
     font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 5px;
 }
 
-.title{
+.title {
     color: var(--color-blak);
     font-size: 40px;
     margin-top: 5px;
     margin-bottom: 30px;
 }
 
-.card-icon{
+.card-icon {
     height: 150px;
     margin: 0 auto;
     margin-bottom: 30px;
@@ -214,23 +216,129 @@ a.navbar-brand {
 
 }
 
-.card-text{
+.card-text {
     color: var(--color-text-out);
     font-size: 15px;
     padding: 0px 30px;
 
 }
 
-.card-text p{
+.card-text p {
     font-size: 22px;
     color: var(--color-blak);
     padding-bottom: 10px;
 }
 
-.background-serviços{
+.background-serviços {
     position: absolute;
     left: 0;
     right: 0;
     height: 500px;
     background-image: url(../img/bg-icons-2.png);
+}
+
+.cardapio {
+    padding-top: 50px;
+    padding-bottom: 150px;
+}
+
+.container-menu {
+    margin-bottom: 40px;
+}
+
+.card-item {
+    height: 360px;
+
+}
+
+.card-item .img-produto img {
+    width: 100%;
+    border-radius: 11px;
+}
+
+.card-item .title-produto {
+    color: var(--color-blak);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 40px;
+    margin-bottom: 0;
+}
+
+.card-item .price-produto {
+    color: var(--color-primary);
+    font-size: 24px;
+}
+
+.card-item .add-carrinho {
+    display: none;
+    text-align: center;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.btn-menos {
+    color: var(--color-blak-heavy);
+    padding: 5px 7px;
+    border: 2px solid var(--color-blak-heavy);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-mais {
+    color: var(--color-blak-heavy);
+    padding: 5px 7px;
+    border: 2px solid var(--color-blak-heavy);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.add-numero-itens {
+    color: var(--color-blak-heavy);
+    padding: 2px 15px;
+    border-top: 2px solid var(--color-blak-heavy);
+    border-bottom: 2px solid var(--color-blak-heavy);
+    font-size: 18px;
+}
+
+.btn-add {
+    border: 2px solid var(--color-blak-heavy);
+    font-size: 16px;
+    padding: 4px 10px;
+    border-radius: 10px;
+    color: var(--color-white);
+    background-color: var(--color-blak-heavy);
+    margin-left: 15px;
+}
+
+.card-item:hover {
+    background-color: var(--color-primary);
+
+}
+
+.card-item:hover .title-produto {
+    display: none;
+}
+
+.card-item:hover .add-carrinho {
+    display: flex;
+}
+
+.card-item:hover .price-produto {
+    color: var(--color-blak-heavy) !important;
+    margin-top: 20px;
+}
+
+.background-cardapio {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 500px;
+    background-image: url(../img/bg-icons-1.png);
 }
