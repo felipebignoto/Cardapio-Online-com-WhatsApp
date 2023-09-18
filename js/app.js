@@ -11,21 +11,40 @@ cardapio.eventos = {
 }
 
 cardapio.metodos = {
-    obterIntensCardapio: (categoria = 'burgers') => {
+    obterIntensCardapio: (categoria = 'burgers', verMais = false) => {
         var filtro = MENU[categoria];
 
-        $("#itensCardapio").html("")
+        if(!verMais) {
+            $("#itensCardapio").html("")
+            $("#btnVerMais").removeClass("hidden")
+
+        }
 
         $.each(filtro, (i, e) => {
             let temp = cardapio.templates.item.replace(/\${img}/g, e.img).replace(/\${name}/g, e.name).replace(/\${price}/g, e.price.toFixed(2).replace('.',','))
 
-            $("#itensCardapio").append(temp)
+            if(verMais && i >= 8 && i < 12){
+                $("#itensCardapio").append(temp)
+            }
+
+            if(!verMais && i<8){
+                $("#itensCardapio").append(temp)
+            }
+
+           
         })
 
         $(".container-menu a").removeClass("active")
         $("#menu-" + categoria).addClass("active")
-
+        
     },
+
+    verMais: () => {
+        var ativo = $(".container-menu a.active").attr("id").split("menu-")[1]
+        cardapio.metodos.obterIntensCardapio(ativo,true)
+        $("#btnVerMais").addClass("hidden")
+
+    }
 }
 
 cardapio.templates = {
