@@ -8,11 +8,19 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/fontawesome.css">
     <link rel="stylesheet" href="css/main.css">
-
+    <link rel="stylesheet" href="css/animate.css">
 
 </head>
 
 <body>
+
+    <div class="container-mensagens" id="container-mensagens"></div>
+
+    <a class="botao-carrinho hidden" onclick="cardapio.metodos.abrirCarrinho(true)">
+        <div class="badge-total-carrinho">0</div>
+        <i class="fa fa-shopping-bag"></i>
+    </a>
+
     <section class="header">
         <div class="container">
             <nav class="navbar navbar-expand-lg pl-0 pr-0">
@@ -35,9 +43,9 @@
                         <li class="nav-item"><a href="#depoimentos" class="nav-link"><b>Depoimentos</b></a></li>
 
                     </ul>
-                    <a class="btn btn-white btn-icon">
-                        Meu carrinho
-                        <span class="icon">
+                    <a class="btn btn-white btn-icon"  onclick="cardapio.metodos.abrirCarrinho(true)">
+                        Meu carrinho <span class="icon">
+                            <div class="container-total-carrinho badge-total-carrinho hidden"></div>
                             <i class="fa fa-shopping-bag">
 
                             </i>
@@ -182,7 +190,7 @@
                         <i class="fas fa-cocktail"></i> &nbsp Bebidas
                     </a>
 
-                    <a id="menu-sobremesa" class="btn btn-white btn-sm mr-3 "
+                    <a id="menu-sobremesas" class="btn btn-white btn-sm mr-3 "
                         onclick="cardapio.metodos.obterIntensCardapio('sobremesas')">
                         <i class="fas fa-ice-cream"></i>&nbsp Sobremesas
                     </a>
@@ -360,7 +368,7 @@
     <div class="modal-full hidden" id="modalCarrinho">
         <div class="m-header">
             <div class="container">
-                <a class="btn btn-white btn-sm float-right">Fechar</a>
+                <a class="btn btn-white btn-sm float-right"  onclick="cardapio.metodos.abrirCarrinho(false)">Fechar</a>
 
                 <div class="etapas">
                     <div class="etapa1 etapa active">1</div>
@@ -376,25 +384,7 @@
         <div class="m-body">
             <div class="container">
                 <div id="itensCarrinho" class="row mr-0 ml-0 hidden">
-                    <div class="col-12 item-carrinho">
-                        <div class="img-produto">
-                            <img src="./img/cardapio/burguers/burger-au-poivre-kit-4-pack.3ca0e39b02db753304cd185638dad518.jpg"
-                                alt="foto do produto">
-                        </div>
-                        <div class="dados-produto">
-                            <p class="title-produto"><b>Nome</b></p>
-                            <p class="price-produto"><b>R$ 15,98</b></p>
-                        </div>
-
-                        <div class="add-carrinho">
-                            <span class="btn-menos"><i class="fas fa-minus "></i></span>
-                            <span class="add-numero-itens">0</span>
-                            <span class="btn-mais"><i class="fas fa-plus "></i></span>
-                            <span class="btn btn-remove"><i class="fas fa-times "></i></span>
-                        </div>
-                    </div>
-
-
+                    
                 </div>
 
                 <div id="localEntrega" class="row mr-0 ml-0 hidden">
@@ -482,7 +472,8 @@
 
 
                 </div>
-                <div id="resumoCarrinho" class="row mr-0 ml-0 ">
+
+                <div id="resumoCarrinho" class="row mr-0 ml-0 hidden ">
                     <div class="col-12">
                         <p class="title-carrinho mt-4">
                             <b>Itens do pedido:</b>
@@ -537,26 +528,28 @@
                 <div class="container-total text-right mb-4">
                     <p class="mb-0">
                         <span>Subtotal:</span>
-                        <span id="lblAubtotal">R$95,00</span>
+                        <span id="lblSubtotal">R$0,00</span>
                     </p>
 
                     <p class="mb-0 texto-entrega">
                         <span><i class="fas fa-motorcycle"></i>Entrega:</span>
-                        <span id="lblValorEntrega">R$5,00</span>
+                        <span id="lblValorEntrega">R$0,00</span>
                     </p>
 
                     <p class="mb-0 texto-total">
                         <span><b>Total:</b>:</span>
-                        <span class="valor-total" id="lblValorTotal"><b>R$100,00</b></span>
+                        <span class="valor-total"><b id="lblValorTotal">R$0,00</b></span>
                     </p>
                 </div>
 
-                <a class="btn btn-yellow float-right" id="btnEtapaPedido">Continuar</a>
-                <a class="btn btn-yellow float-right hidden" id="btnEtapaREndereco">Revisar pedido</a>
+                <a class="btn btn-yellow float-right" id="btnEtapaPedido" onclick="cardapio.metodos.alteraEtapa(2)">Continuar</a>
+                <a class="btn btn-yellow float-right hidden" id="btnEtapaREndereco" onclick="cardapio.metodos.alteraEtapa(3)"">Revisar pedido</a>
                 <a class="btn btn-yellow float-right hidden" id="btnEtapaResumo">Enviar pedido</a>
-                <a class="btn btn-white float-right mr-3 hidden" id="btnVoltar">Voltar</a>
+                <a class="btn btn-white float-right mr-3 hidden" id="btnVoltar" onclick="cardapio.metodos.voltarEtapa()"">Voltar</a>
 
             </div>
+
+
         </div>
     </div>
 
@@ -566,8 +559,6 @@
     <script src="js/popper.min.js"></script>
     <script src="js/dados.js"></script>
     <script src="js/app.js"></script>
-
-
 
 </body>
 
